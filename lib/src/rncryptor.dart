@@ -170,6 +170,7 @@ class RNCryptor {
 
   static String _addPkcs7Padding(String plainText, int blockSize) {
     var padSize = blockSize - (plainText.length % blockSize);
-    return plainText + ''.padRight(padSize - 1) + String.fromCharCode(padSize);
+    var paddingChar = String.fromCharCode(padSize);
+    return plainText + paddingChar * padSize;
   }
 }
